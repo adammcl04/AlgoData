@@ -3,19 +3,25 @@ public class Quicksort {
     private static int []a;
     public static void main(String[] args) {
         // Get a random generated array
-        a = getArray();
+
+        a = getRandomArray();
+
+        //a = getSortedArray();
+
+        //a= getInverseArray();
 
         // prints the given array
         printArray();
 
         // sort the array
+        long startTime = System.nanoTime();
         sort();
-
-        System.out.println("");
-
+        long elapsedNanos = System.nanoTime() - startTime;
+        System.out.println();
         //prints the sorted array
         printArray();
-
+        System.out.println();
+        System.out.println("Elapsed time: " + elapsedNanos + " ns");
     }
 
     // This method sorts an array and internally calls quickSort
@@ -77,12 +83,34 @@ public class Quicksort {
         }
     }
 
-    public static int[] getArray(){
-        int size=10;
+    public static int[] getRandomArray(){
+        int size=1000;
         int []array = new int[size];
         int item = 0;
         for(int i=0;i<size;i++){
-            item = (int)(Math.random()*100);
+            item = (int)(Math.random()*10000);
+            array[i] = item;
+        }
+        return array;
+    }
+
+    public static int[] getSortedArray(){
+        int size=10000;
+        int []array = new int[size];
+        int item = 0;
+        for(int i=0;i<size;i++){
+            item = (int)(i);
+            array[i] = item;
+        }
+        return array;
+    }
+
+    public static int[] getInverseArray(){
+        int size=10000;
+        int []array = new int[size];
+        int item = 0;
+        for(int i=0;i<size;i++){
+            item = (int)(10000-i);
             array[i] = item;
         }
         return array;

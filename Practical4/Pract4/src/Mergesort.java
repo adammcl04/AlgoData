@@ -2,10 +2,21 @@ public class Mergesort {
 
     private static int []myArray;
     public static void main(String[] args) {
-        myArray = getArray();
+
+        //myArray = getRandomArray();
+
+        //myArray = getSortedArray();
+
+        //myArray = getInverseArray();
+
+
+
         printArray(myArray);
+        long startTime = System.nanoTime();
         sort();
+        long elapsedNanos = System.nanoTime() - startTime;
         System.out.println();
+        System.out.println("Elapsed time: " + elapsedNanos + " ns");
         printArray(myArray);
     }
 
@@ -59,12 +70,34 @@ public class Mergesort {
     }
 
     //populate array
-    public static int[] getArray(){
-        int size=1500;
+    public static int[] getRandomArray(){
+        int size=10000;
         int []array = new int[size];
         int item = 0;
         for(int i=0;i<size;i++){
-            item = (int)(Math.random()*100);
+            item = (int)(Math.random()*10000);
+            array[i] = item;
+        }
+        return array;
+    }
+
+    public static int[] getSortedArray(){
+        int size=10000;
+        int []array = new int[size];
+        int item = 0;
+        for(int i=0;i<size;i++){
+            item = (int)(i);
+            array[i] = item;
+        }
+        return array;
+    }
+
+    public static int[] getInverseArray(){
+        int size=10000;
+        int []array = new int[size];
+        int item = 0;
+        for(int i=0;i<size;i++){
+            item = (int)(10000-i);
             array[i] = item;
         }
         return array;
