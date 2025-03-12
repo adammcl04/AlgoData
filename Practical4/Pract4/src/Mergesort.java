@@ -3,7 +3,7 @@ public class Mergesort {
     private static int []myArray;
     public static void main(String[] args) {
 
-        //myArray = getRandomArray();
+        myArray = getRandomArray();
 
         //myArray = getSortedArray();
 
